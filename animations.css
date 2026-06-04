@@ -1,0 +1,195 @@
+/* ==========================================
+   ANIMATIONS & KEYFRAMES
+   ========================================== */
+
+/* 1. Typing Cursor Blink */
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* 2. Mouse Scroll-Down Indicator Wheel Slide */
+@keyframes scroll-wheel {
+    0% {
+        opacity: 0;
+        top: 8px;
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        top: 26px;
+    }
+}
+
+/* 3. Pulsing Ambient Background Glows */
+@keyframes pulse-glow {
+    0%, 100% {
+        transform: scale(1) translate(0, 0);
+        opacity: 0.15;
+    }
+    33% {
+        transform: scale(1.15) translate(30px, -50px);
+        opacity: 0.22;
+    }
+    66% {
+        transform: scale(0.9) translate(-40px, 20px);
+        opacity: 0.12;
+    }
+}
+
+.glow-1 {
+    animation: pulse-glow 18s infinite ease-in-out;
+}
+
+.glow-2 {
+    animation: pulse-glow 24s infinite ease-in-out 2s;
+}
+
+.glow-3 {
+    animation: pulse-glow 20s infinite ease-in-out 4s;
+}
+
+/* 4. Section Scroll-Reveal Animations (triggered by JS Intersection Observer) */
+.section-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay reveals for consecutive elements in Hero */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-item.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 5. Portfolio Filtering Transition Keyframe */
+@keyframes scale-up {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.portfolio-item.filtering {
+    animation: scale-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* 6. Skill Connectors Animated Pulse Effect */
+@keyframes flow-line {
+    0% {
+        stroke-dashoffset: 20px;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.connector-line {
+    stroke-dasharray: 10px, 5px;
+    animation: flow-line 1s linear infinite;
+}
+
+/* 7. Hover Magnetic Pulse (subtle scale) */
+.magnetic-hover {
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 8. Logo Thunder/Lightning Bolt Animation
+   Inspired by Lord Shiva's Trishul crackling with divine lightning energy.
+   The lightning stem path flashes intensely, glows, and fades
+   in a smooth infinite cycle every 4 seconds. */
+@keyframes thunder-strike {
+    0%, 85%, 100% {
+        opacity: 0.4;
+        filter: drop-shadow(0 0 1px var(--accent-primary));
+        stroke: var(--accent-primary);
+    }
+    88% {
+        opacity: 1;
+        filter: drop-shadow(0 0 8px var(--accent-secondary)) drop-shadow(0 0 16px var(--accent-primary));
+        stroke: var(--accent-secondary);
+    }
+    90% {
+        opacity: 0.3;
+        filter: drop-shadow(0 0 2px var(--accent-primary));
+        stroke: var(--accent-primary);
+    }
+    93% {
+        opacity: 1;
+        filter: drop-shadow(0 0 12px #ffffff) drop-shadow(0 0 24px var(--accent-secondary));
+        stroke: #ffffff;
+    }
+    96% {
+        opacity: 0.8;
+        filter: drop-shadow(0 0 6px var(--accent-secondary));
+        stroke: var(--accent-secondary);
+    }
+}
+
+@keyframes thunder-glow-text {
+    0%, 85%, 100% {
+        text-shadow: none;
+        color: var(--text-primary);
+    }
+    88% {
+        text-shadow: 0 0 6px var(--accent-primary);
+        color: var(--text-primary);
+    }
+    93% {
+        text-shadow: 0 0 12px var(--accent-secondary), 0 0 20px var(--accent-primary);
+        color: var(--text-primary);
+    }
+    96% {
+        text-shadow: 0 0 4px var(--accent-primary);
+        color: var(--text-primary);
+    }
+}
+
+@keyframes logo-icon-shake {
+    0%, 85%, 100% { transform: rotate(0deg); }
+    88% { transform: rotate(-2deg); }
+    90% { transform: rotate(1deg); }
+    93% { transform: rotate(-1deg); }
+    96% { transform: rotate(0deg); }
+}
+
+/* Apply to the logo SVG */
+.logo-icon {
+    animation: logo-icon-shake 4s infinite ease-in-out;
+}
+
+.logo-icon .lightning-stem {
+    animation: thunder-strike 4s infinite ease-in-out;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.logo-text {
+    animation: thunder-glow-text 4s infinite ease-in-out;
+}
+
+.logo:hover .logo-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px var(--accent-primary));
+}
+
+.logo:hover .logo-text {
+    text-shadow: 0 0 8px var(--accent-primary);
+}

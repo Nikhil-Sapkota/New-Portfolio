@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikhil Sapkota | IT Professional, Designer & Developer</title>
+    <meta name="description" content="Portfolio of Nikhil Sapkota, showcasing IT support, graphic design, and custom web development with interactive animations.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="dark-theme">
+    <!-- Particle Background Canvas -->
+    <canvas id="particle-canvas"></canvas>
+    
+    <!-- Ambient Radial Glows -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- Header Navigation -->
+    <header class="main-header" id="header">
+        <div class="header-container">
+            <a href="#home" class="logo" id="header-logo">
+                <svg class="logo-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Rudra.dev Logo">
+                    <path d="M8 8c0 5 3 7 8 7" />
+                    <path d="M24 8c0 5-3 7-8 7" />
+                    <line x1="16" y1="3" x2="16" y2="15" />
+                    <path class="lightning-stem" d="M16 15l-4 8h6l-5 8" />
+                </svg>
+                <span class="logo-text">Rudra.dev</span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active" id="nav-link-home">Home</a></li>
+                    <li><a href="#about" class="nav-link" id="nav-link-about">About</a></li>
+                    <li><a href="#skills" class="nav-link" id="nav-link-skills">Skills</a></li>
+                    <li><a href="#portfolio" class="nav-link" id="nav-link-portfolio">Portfolio</a></li>
+                    <li><a href="#contact" class="nav-link" id="nav-link-contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <!-- Theme Toggle Button -->
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                
+                <!-- Burger Button -->
+                <button class="burger-menu" id="burger-menu-btn" aria-label="Open menu">
+                    <span class="burger-bar bar-1"></span>
+                    <span class="burger-bar bar-2"></span>
+                    <span class="burger-bar bar-3"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section id="home" class="hero-section full-screen">
+            <div class="hero-content container">
+                <div class="hero-text-container">
+                    <span class="hero-subtitle reveal-item">Welcome to my universe</span>
+                    <h1 class="hero-title reveal-item">
+                        Hi, I'm <span class="gradient-text">Nikhil Sapkota</span>
+                    </h1>
+                    <h2 class="hero-role reveal-item">
+                        I am a <span class="role-text" id="typewriter-text"></span><span class="cursor">|</span>
+                    </h2>
+                    <p class="hero-description reveal-item">
+                        Bridging technical support, creative graphic design, and responsive web development to deliver robust, high-quality digital solutions.
+                    </p>
+                    <div class="hero-actions reveal-item">
+                        <a href="#portfolio" class="btn btn-primary" id="hero-btn-portfolio">Explore Work</a>
+                        <a href="#contact" class="btn btn-secondary" id="hero-btn-contact">Let's Connect</a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual reveal-item">
+                    <!-- Glassmorphic floating card stack -->
+                    <div class="glass-card-stack">
+                        <div class="stack-card card-design">
+                            <div class="card-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/><path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z"/></svg>
+                            </div>
+                            <h3>UI/UX Design</h3>
+                            <p>Wireframes & Prototypes</p>
+                        </div>
+                        <div class="stack-card card-web">
+                            <div class="card-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            </div>
+                            <h3>Web Dev</h3>
+                            <p>Responsive Interfaces</p>
+                        </div>
+                        <div class="stack-card card-app">
+                            <div class="card-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                            </div>
+                            <h3>IT & Systems</h3>
+                            <p>Hardware & Networks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#about" class="scroll-down-indicator" aria-label="Scroll to About section">
+                <span class="mouse-icon">
+                    <span class="mouse-wheel"></span>
+                </span>
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section padding-y section-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Biography</span>
+                    <h2 class="section-title">Architecting Digital Experiences</h2>
+                    <div class="header-line"></div>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p class="lead-para">
+                            I am a detail-oriented IT Professional and Designer based in Nepal. With a strong background in IT hardware & troubleshooting, custom graphic design, and web development, I build solutions that are technically sound and visually engaging.
+                        </p>
+                        <p>
+                            As a **designer**, I work on digital branding, graphic layouts, and vector illustrations. As a **web developer**, I translate designs into clean, responsive, and interactive websites. As an **IT technician**, I handle PC troubleshooting, network installation, and hardware maintenance.
+                        </p>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number">3+</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">15+</span>
+                                <span class="stat-label">Projects Completed</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Client Support</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Certifications & Languages from CV -->
+                        <div class="about-extras">
+                            <div class="certifications-container">
+                                <h3 class="timeline-title-small">Certifications</h3>
+                                <ul class="cert-list">
+                                    <li class="cert-item">
+                                        <div class="cert-icon-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                        </div>
+                                        <div class="cert-info-small">
+                                            <strong>Critical Infrastructure Protection</strong>
+                                            <span>OPSWAT Academy • Feb 2025</span>
+                                        </div>
+                                    </li>
+                                    <li class="cert-item">
+                                        <div class="cert-icon-small">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                                        </div>
+                                        <div class="cert-info-small">
+                                            <strong>Data Science & Analytics</strong>
+                                            <span>HP Life • Feb 2025</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="languages-container">
+                                <h3 class="timeline-title-small">Languages</h3>
+                                <div class="lang-tags">
+                                    <span class="lang-tag">Nepali <small>(Native)</small></span>
+                                    <span class="lang-tag">English <small>(Good)</small></span>
+                                    <span class="lang-tag">German <small>(Learning)</small></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-timeline">
+                        <h3 class="timeline-title">My Journey</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2026 - Present</div>
+                                <h4 class="timeline-role">IT Intern</h4>
+                                <p class="timeline-desc">Council of Technical Education and Vocational Training (CTEVT), Sanothimi. Troubleshooting hardware/software and configuring networking basics.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2024 - 2025</div>
+                                <h4 class="timeline-role">Customer Service Representative</h4>
+                                <p class="timeline-desc">Social Security Fund (SSF), Pulchok. Resolved inquiries, managed support tickets, conflict resolutions, and customer assistance.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2024</div>
+                                <h4 class="timeline-role">Graphic Designer</h4>
+                                <p class="timeline-desc">Avoloft Technologies, Tinkune. Created custom vector assets, print/digital media, branding kits, and team collaborations.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2023</div>
+                                <h4 class="timeline-role">PC Support Technician</h4>
+                                <p class="timeline-desc">Lalitpur. Provided general user support, hardware troubleshooting, operating systems setup, and diagnostics.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2022 - 2025</div>
+                                <h4 class="timeline-role">Diploma in IT (EQF Level 5)</h4>
+                                <p class="timeline-desc">Mahalaxmi Polytechnic Institute (CTEVT). Gained core knowledge in software algorithms, networks, database queries, and system architectures.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section padding-y section-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Proficiency</span>
+                    <h2 class="section-title">Skills Console & Control Deck</h2>
+                    <div class="header-line"></div>
+                </div>
+                
+                <div class="skills-tabs">
+                    <button class="skills-tab-btn active" data-category="all" id="skill-tab-all">All Skills</button>
+                    <button class="skills-tab-btn" data-category="design" id="skill-tab-design">Graphic Design</button>
+                    <button class="skills-tab-btn" data-category="web" id="skill-tab-web">Web Dev</button>
+                    <button class="skills-tab-btn" data-category="app" id="skill-tab-app">IT & Systems</button>
+                </div>
+
+                <div class="skills-console-wrapper">
+                    <!-- Left Panel: The Animated Visualizer Console -->
+                    <div class="skills-visualizer" id="skills-visualizer">
+                        <div class="visualizer-overlay-hint" id="visualizer-hint">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hint-icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 12 12 8 12"></polyline><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                            <p>Hover or tap any skill card in the deck to analyze performance metrics</p>
+                        </div>
+                        
+                        <div class="visualizer-content hidden" id="visualizer-content">
+                            <div class="visualizer-header">
+                                <div class="visualizer-indicator" id="viz-indicator"></div>
+                                <h3 class="visualizer-title" id="viz-title">Skill Analyzer</h3>
+                                <span class="visualizer-category" id="viz-category">Design</span>
+                            </div>
+                            
+                            <div class="visualizer-body">
+                                <div class="viz-radial-gauge">
+                                    <svg class="viz-svg" viewBox="0 0 140 140">
+                                        <circle class="viz-circle-bg" cx="70" cy="70" r="60"></circle>
+                                        <circle class="viz-circle-bar" id="viz-circle-bar" cx="70" cy="70" r="60"></circle>
+                                    </svg>
+                                    <div class="viz-percentage" id="viz-percentage">0%</div>
+                                </div>
+                                
+                                <div class="viz-metrics">
+                                    <div class="viz-metric-row">
+                                        <span class="viz-metric-label">Competence Level</span>
+                                        <span class="viz-metric-val" id="viz-level">Expert</span>
+                                        <div class="viz-metric-track"><div class="viz-metric-fill" id="viz-fill-level"></div></div>
+                                    </div>
+                                    <div class="viz-metric-row">
+                                        <span class="viz-metric-label">Speed Index</span>
+                                        <span class="viz-metric-val" id="viz-speed">90%</span>
+                                        <div class="viz-metric-track"><div class="viz-metric-fill" id="viz-fill-speed"></div></div>
+                                    </div>
+                                    <div class="viz-metric-row">
+                                        <span class="viz-metric-label">Versatility</span>
+                                        <span class="viz-metric-val" id="viz-versatility">85%</span>
+                                        <div class="viz-metric-track"><div class="viz-metric-fill" id="viz-fill-versatility"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="visualizer-footer">
+                                <h4>Key Capabilities</h4>
+                                <ul class="viz-capabilities-list" id="viz-capabilities">
+                                    <!-- Populated dynamically -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel: The Cards Control Deck -->
+                    <div class="skills-deck" id="skills-deck-container">
+                        <!-- Dynamic Skills Cards will be rendered by skills.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio-section padding-y section-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Projects</span>
+                    <h2 class="section-title">Featured Works</h2>
+                    <div class="header-line"></div>
+                </div>
+                
+                <div class="portfolio-filters">
+                    <button class="filter-btn active" data-filter="all" id="portfolio-filter-all">All Work</button>
+                    <button class="filter-btn" data-filter="design" id="portfolio-filter-design">Design</button>
+                    <button class="filter-btn" data-filter="web" id="portfolio-filter-web">Web Dev</button>
+                    <button class="filter-btn" data-filter="app" id="portfolio-filter-app">IT & Systems</button>
+                </div>
+                
+                <div class="portfolio-grid" id="portfolio-grid-container">
+                    <!-- Dynamic Projects will be rendered by portfolio.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section padding-y section-reveal">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Reach Out</span>
+                    <h2 class="section-title">Start A Conversation</h2>
+                    <div class="header-line"></div>
+                </div>
+                
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h3>Let's collaborate on your next project</h3>
+                        <p>Have an exciting idea or need an experienced full-stack designer/developer to join your ranks? Reach out via the form, or direct channels.</p>
+                        
+                        <ul class="contact-links">
+                            <li>
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                </div>
+                                <div class="contact-detail">
+                                    <span>Email</span>
+                                    <a href="mailto:mahadevsapkota2@gmail.com" id="contact-email">mahadevsapkota2@gmail.com</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                </div>
+                                <div class="contact-detail">
+                                    <span>Phone</span>
+                                    <a href="tel:+9779745657000" id="contact-phone">(+977) 9745657000</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                </div>
+                                <div class="contact-detail">
+                                    <span>Location</span>
+                                    <span id="contact-location">Panauti, Kavrepalanchowk, Nepal</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <form class="contact-form" id="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully (Demo Mode)!')">
+                        <div class="form-group">
+                            <input type="text" id="form-name" required placeholder=" " class="form-input">
+                            <label for="form-name" class="form-label">Full Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="form-email" required placeholder=" " class="form-input">
+                            <label for="form-email" class="form-label">Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="form-subject" required placeholder=" " class="form-input">
+                            <label for="form-subject" class="form-label">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="form-message" required placeholder=" " class="form-input form-textarea"></textarea>
+                            <label for="form-message" class="form-label">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit" id="form-submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p class="copyright">&copy; 2026 Rudra.dev (Nikhil Sapkota). All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="#" aria-label="GitHub" class="social-link" id="social-github">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="#" aria-label="LinkedIn" class="social-link" id="social-linkedin">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="#" aria-label="Dribbble" class="social-link" id="social-dribbble">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.49-11.05 1-11.6 8.56"></path></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Detail Modal -->
+    <div class="modal-overlay" id="project-modal">
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close-btn" aria-label="Close details">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-content" id="modal-body-content">
+                <!-- Data will be loaded programmatically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/skills.js"></script>
+    <script src="js/portfolio.js"></script>
+</body>
+</html>
